@@ -6,9 +6,13 @@
 //
 
 import SwiftUI
+import Combine
 
-struct Home: View {
-    @State var currentItem: Today?
+struct HomeView: View {
+    @StateObject private var viewModel = HomeViewModel()
+    private var cancellable: AnyCancellable?
+
+    @State var currentItem: Game?
     @State var showDetailPage: Bool = false
 
     @Namespace var animation
@@ -40,7 +44,7 @@ struct Home: View {
                 .padding(.horizontal)
                 .padding(.bottom)
                 .opacity(showDetailPage ? 0 : 1)
-
+                
                 ForEach(todayItems) { item in
                     Button {
                         withAnimation(.interactiveSpring(response: 0.6,
@@ -56,6 +60,7 @@ struct Home: View {
                     .buttonStyle(ScaledButtonStyle())
                     .opacity(showDetailPage ? (currentItem?.id == item.id ? 1 : 0) : 1)
                 }
+
             }
             .padding(.vertical)
         }
@@ -72,11 +77,14 @@ struct Home: View {
                 .opacity(animateView ? 1 : 0)
                 .ignoresSafeArea()
         }
+        .onAppear {
+            viewModel.onAppear()
+        }
     }
 
 
     @ViewBuilder
-    func CardView(item: Today) -> some View {
+    func CardView(item: Game) -> some View {
         VStack(alignment: .leading, spacing: 15) {
             ZStack(alignment: .topLeading) {
 
@@ -156,9 +164,9 @@ struct Home: View {
     }
 }
 
-extension Home {
+extension HomeView {
     // MARK: Detail View
-    func DetailView(item: Today) -> some View{
+    func DetailView(item: Game) -> some View{
         ScrollView(.vertical, showsIndicators: false) {
             VStack {
                 CardView(item: item)
@@ -237,9 +245,9 @@ extension Home {
     }
 }
 
-struct Home_Previews: PreviewProvider {
+struct HomeView_Previews: PreviewProvider {
     static var previews: some View {
-        Home()
+        HomeView()
             .preferredColorScheme(.dark)
     }
 }

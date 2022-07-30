@@ -11,7 +11,7 @@ import SwiftUI
 struct SwiftyAppStoreApp: App {
     var body: some Scene {
         WindowGroup {
-            Home().preferredColorScheme(.dark)
+            HomeView().preferredColorScheme(.dark)
         }
     }
 }

@@ -14,11 +14,15 @@
 		43AD942F28951D5F0040E5B3 /* SwiftyAppStoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43AD942E28951D5F0040E5B3 /* SwiftyAppStoreTests.swift */; };
 		43AD943928951D5F0040E5B3 /* SwiftyAppStoreUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43AD943828951D5F0040E5B3 /* SwiftyAppStoreUITests.swift */; };
 		43AD943B28951D5F0040E5B3 /* SwiftyAppStoreUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43AD943A28951D5F0040E5B3 /* SwiftyAppStoreUITestsLaunchTests.swift */; };
-		43AD944C28951E5E0040E5B3 /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43AD944B28951E5E0040E5B3 /* Home.swift */; };
+		43AD944C28951E5E0040E5B3 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43AD944B28951E5E0040E5B3 /* HomeView.swift */; };
 		43AD944E2895214A0040E5B3 /* Today.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43AD944D2895214A0040E5B3 /* Today.swift */; };
 		43AD945128952D220040E5B3 /* Curves.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43AD945028952D220040E5B3 /* Curves.swift */; };
 		43AD945328955CEA0040E5B3 /* ScaledButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43AD945228955CEA0040E5B3 /* ScaledButtonStyle.swift */; };
 		43AD945628955FD90040E5B3 /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43AD945528955FD90040E5B3 /* View.swift */; };
+		43AD94592895735A0040E5B3 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43AD94582895735A0040E5B3 /* HomeViewModel.swift */; };
+		43AD945C289573C20040E5B3 /* HomeRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43AD945B289573C20040E5B3 /* HomeRepository.swift */; };
+		43AD945E289573F40040E5B3 /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43AD945D289573F40040E5B3 /* Game.swift */; };
+		43AD9461289575760040E5B3 /* HomeAPIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43AD9460289575760040E5B3 /* HomeAPIService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,11 +53,15 @@
 		43AD943428951D5F0040E5B3 /* SwiftyAppStoreUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftyAppStoreUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		43AD943828951D5F0040E5B3 /* SwiftyAppStoreUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftyAppStoreUITests.swift; sourceTree = "<group>"; };
 		43AD943A28951D5F0040E5B3 /* SwiftyAppStoreUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftyAppStoreUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		43AD944B28951E5E0040E5B3 /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
+		43AD944B28951E5E0040E5B3 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		43AD944D2895214A0040E5B3 /* Today.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Today.swift; sourceTree = "<group>"; };
 		43AD945028952D220040E5B3 /* Curves.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Curves.swift; sourceTree = "<group>"; };
 		43AD945228955CEA0040E5B3 /* ScaledButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScaledButtonStyle.swift; sourceTree = "<group>"; };
 		43AD945528955FD90040E5B3 /* View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = View.swift; sourceTree = "<group>"; };
+		43AD94582895735A0040E5B3 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		43AD945B289573C20040E5B3 /* HomeRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeRepository.swift; sourceTree = "<group>"; };
+		43AD945D289573F40040E5B3 /* Game.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
+		43AD9460289575760040E5B3 /* HomeAPIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeAPIService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,10 +112,12 @@
 		43AD941C28951D580040E5B3 /* SwiftyAppStore */ = {
 			isa = PBXGroup;
 			children = (
-				43AD945428955FCC0040E5B3 /* Extension */,
-				43AD944928951E480040E5B3 /* View */,
-				43AD944828951E390040E5B3 /* ViewModel */,
-				43AD944728951E320040E5B3 /* Model */,
+				43AD945F2895755D0040E5B3 /* Services */,
+				43AD945A289573740040E5B3 /* Repositories */,
+				43AD945428955FCC0040E5B3 /* Extensions */,
+				43AD944928951E480040E5B3 /* Views */,
+				43AD944828951E390040E5B3 /* ViewModels */,
+				43AD944728951E320040E5B3 /* Models */,
 				43AD941D28951D580040E5B3 /* SwiftyAppStoreApp.swift */,
 				43AD941F28951D590040E5B3 /* ContentView.swift */,
 				43AD942128951D5F0040E5B3 /* Assets.xcassets */,
@@ -141,34 +151,36 @@
 			path = SwiftyAppStoreUITests;
 			sourceTree = "<group>";
 		};
-		43AD944728951E320040E5B3 /* Model */ = {
+		43AD944728951E320040E5B3 /* Models */ = {
 			isa = PBXGroup;
 			children = (
 				43AD944D2895214A0040E5B3 /* Today.swift */,
+				43AD945D289573F40040E5B3 /* Game.swift */,
 			);
-			path = Model;
+			path = Models;
 			sourceTree = "<group>";
 		};
-		43AD944828951E390040E5B3 /* ViewModel */ = {
+		43AD944828951E390040E5B3 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				43AD94582895735A0040E5B3 /* HomeViewModel.swift */,
 			);
-			path = ViewModel;
+			path = ViewModels;
 			sourceTree = "<group>";
 		};
-		43AD944928951E480040E5B3 /* View */ = {
+		43AD944928951E480040E5B3 /* Views */ = {
 			isa = PBXGroup;
 			children = (
 				43AD944F28952D010040E5B3 /* Components */,
 				43AD944A28951E520040E5B3 /* Screens */,
 			);
-			path = View;
+			path = Views;
 			sourceTree = "<group>";
 		};
 		43AD944A28951E520040E5B3 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
-				43AD944B28951E5E0040E5B3 /* Home.swift */,
+				43AD944B28951E5E0040E5B3 /* HomeView.swift */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -182,12 +194,28 @@
 			path = Components;
 			sourceTree = "<group>";
 		};
-		43AD945428955FCC0040E5B3 /* Extension */ = {
+		43AD945428955FCC0040E5B3 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
 				43AD945528955FD90040E5B3 /* View.swift */,
 			);
-			path = Extension;
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		43AD945A289573740040E5B3 /* Repositories */ = {
+			isa = PBXGroup;
+			children = (
+				43AD945B289573C20040E5B3 /* HomeRepository.swift */,
+			);
+			path = Repositories;
+			sourceTree = "<group>";
+		};
+		43AD945F2895755D0040E5B3 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				43AD9460289575760040E5B3 /* HomeAPIService.swift */,
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -318,12 +346,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				43AD9461289575760040E5B3 /* HomeAPIService.swift in Sources */,
 				43AD945128952D220040E5B3 /* Curves.swift in Sources */,
+				43AD945E289573F40040E5B3 /* Game.swift in Sources */,
 				43AD945328955CEA0040E5B3 /* ScaledButtonStyle.swift in Sources */,
 				43AD942028951D590040E5B3 /* ContentView.swift in Sources */,
-				43AD944C28951E5E0040E5B3 /* Home.swift in Sources */,
+				43AD94592895735A0040E5B3 /* HomeViewModel.swift in Sources */,
+				43AD944C28951E5E0040E5B3 /* HomeView.swift in Sources */,
 				43AD941E28951D580040E5B3 /* SwiftyAppStoreApp.swift in Sources */,
 				43AD945628955FD90040E5B3 /* View.swift in Sources */,
+				43AD945C289573C20040E5B3 /* HomeRepository.swift in Sources */,
 				43AD944E2895214A0040E5B3 /* Today.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
