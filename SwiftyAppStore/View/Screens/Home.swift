@@ -10,6 +10,13 @@ import SwiftUI
 struct Home: View {
     @State var currentItem: Today?
     @State var showDetailPage: Bool = false
+
+    @Namespace var animation
+
+    @State var animateView: Bool = false
+    @State var animateContent: Bool = false
+    @State var scrollOffset: CGFloat = 0
+
     var body: some View {
         ScrollView(.vertical, showsIndicators: false) {
             VStack(spacing: 30) {
@@ -32,18 +39,38 @@ struct Home: View {
                 }
                 .padding(.horizontal)
                 .padding(.bottom)
+                .opacity(showDetailPage ? 0 : 1)
 
                 ForEach(todayItems) { item in
                     Button {
-
+                        withAnimation(.interactiveSpring(response: 0.6,
+                                                         dampingFraction: 0.7,
+                                                         blendDuration: 0.7)) {
+                            currentItem = item
+                            showDetailPage = true
+                        }
                     } label: {
                         CardView(item: item)
                             .scaleEffect(currentItem?.id == item.id && showDetailPage ? 1 : 0.93)
                     }
                     .buttonStyle(ScaledButtonStyle())
+                    .opacity(showDetailPage ? (currentItem?.id == item.id ? 1 : 0) : 1)
                 }
             }
             .padding(.vertical)
+        }
+        .overlay {
+            if let currentItem = currentItem, showDetailPage {
+                DetailView(item: currentItem)
+                    .ignoresSafeArea(.container, edges: .top)
+            }
+        }
+        .background(alignment: .top) {
+            RoundedRectangle(cornerRadius: 15, style: .continuous)
+                .fill(Color("bg"))
+                .frame(height: animateView ? nil : 350, alignment: .top)
+                .opacity(animateView ? 1 : 0)
+                .ignoresSafeArea()
         }
     }
 
@@ -80,6 +107,7 @@ struct Home: View {
                 }
                 .foregroundColor(.primary)
                 .padding()
+                .offset(y: currentItem?.id == item.id && animateView ? safeArea().top : 0)
             }
 
             HStack(spacing: 12) {
@@ -119,10 +147,93 @@ struct Home: View {
                 }
             }
             .padding([.horizontal, .bottom])
-        }.background {
+        }
+        .background {
             RoundedRectangle(cornerRadius: 15, style: .continuous)
                 .fill(Color("bg"))
         }
+        .matchedGeometryEffect(id: item.id, in: animation)
+    }
+}
+
+extension Home {
+    // MARK: Detail View
+    func DetailView(item: Today) -> some View{
+        ScrollView(.vertical, showsIndicators: false) {
+            VStack {
+                CardView(item: item)
+                    .scaleEffect(animateView ? 1 : 0.93)
+
+                VStack(spacing: 15) {
+                    Text(dummyText)
+                        .multilineTextAlignment(.leading)
+                        .lineSpacing(10)
+                        .padding(.bottom, 20)
+
+                    Divider()
+
+                    Button(action: {
+
+                    }){
+                        Label(title: {
+                            Text("Share Story")
+                        }, icon: {
+                            Image(systemName: "square.and.arrow.up.fill")
+                        })
+                            .foregroundColor(.primary)
+                            .padding(.vertical, 10)
+                            .padding(.horizontal, 25)
+                            .background {
+                                RoundedRectangle(cornerRadius: 5, style: .continuous)
+                                    .fill(.ultraThinMaterial)
+                            }
+                    }
+                }
+                .padding()
+                .offset(y: scrollOffset > 0 ? scrollOffset : 0)
+                .opacity(animateContent ? 1 : 0)
+                .scaleEffect(animateView ? 1 : 0, anchor: .top)
+            }
+            .offset(y: scrollOffset > 0 ? -scrollOffset : 0)
+            .offset(offset: $scrollOffset)
+        }
+        .coordinateSpace(name: "SCROLL")
+        .overlay(alignment: .topTrailing) {
+            Button {
+                // CLose view
+                withAnimation(.interactiveSpring(response: 0.6, dampingFraction: 0.7, blendDuration: 0.7)) {
+                    animateView = true
+                    animateContent = false
+                }
+
+                withAnimation(.interactiveSpring(response: 0.6, dampingFraction: 0.7, blendDuration: 0.7).delay(0.05)) {
+                    currentItem = nil
+                    showDetailPage = false
+                }
+            } label: {
+                Image(systemName: "xmark.circle.fill")
+                    .font(.title)
+                    .foregroundColor(.white)
+            }
+            .padding()
+            .padding(.top, safeArea().top)
+            .offset(y: -10)
+            .opacity(animateView ? 1 : 0)
+        }
+        .onAppear {
+            withAnimation(.interactiveSpring(response: 0.6,
+                                             dampingFraction: 0.7,
+                                             blendDuration: 0.7)) {
+                animateView = true
+            }
+
+            withAnimation(.interactiveSpring(response: 0.6,
+                                             dampingFraction: 0.7,
+                                             blendDuration: 0.7).delay(0.1)) {
+                animateContent = true
+            }
+        }
+        .transition(.identity)
     }
 }
 
