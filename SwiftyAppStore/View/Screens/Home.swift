@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct Home: View {
+    @State var currentItem: Today?
+    @State var showDetailPage: Bool = false
     var body: some View {
         ScrollView(.vertical, showsIndicators: false) {
             VStack(spacing: 30) {
@@ -29,13 +31,16 @@ struct Home: View {
                     }
                 }
                 .padding(.horizontal)
+                .padding(.bottom)
 
                 ForEach(todayItems) { item in
                     Button {
 
                     } label: {
                         CardView(item: item)
+                            .scaleEffect(currentItem?.id == item.id && showDetailPage ? 1 : 0.93)
                     }
+                    .buttonStyle(ScaledButtonStyle())
                 }
             }
             .padding(.vertical)
