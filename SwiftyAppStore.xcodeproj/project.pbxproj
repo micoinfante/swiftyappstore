@@ -14,6 +14,9 @@
 		43AD942F28951D5F0040E5B3 /* SwiftyAppStoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43AD942E28951D5F0040E5B3 /* SwiftyAppStoreTests.swift */; };
 		43AD943928951D5F0040E5B3 /* SwiftyAppStoreUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43AD943828951D5F0040E5B3 /* SwiftyAppStoreUITests.swift */; };
 		43AD943B28951D5F0040E5B3 /* SwiftyAppStoreUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43AD943A28951D5F0040E5B3 /* SwiftyAppStoreUITestsLaunchTests.swift */; };
+		43AD944C28951E5E0040E5B3 /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43AD944B28951E5E0040E5B3 /* Home.swift */; };
+		43AD944E2895214A0040E5B3 /* Today.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43AD944D2895214A0040E5B3 /* Today.swift */; };
+		43AD945128952D220040E5B3 /* Curves.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43AD945028952D220040E5B3 /* Curves.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +47,9 @@
 		43AD943428951D5F0040E5B3 /* SwiftyAppStoreUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftyAppStoreUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		43AD943828951D5F0040E5B3 /* SwiftyAppStoreUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftyAppStoreUITests.swift; sourceTree = "<group>"; };
 		43AD943A28951D5F0040E5B3 /* SwiftyAppStoreUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftyAppStoreUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		43AD944B28951E5E0040E5B3 /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
+		43AD944D2895214A0040E5B3 /* Today.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Today.swift; sourceTree = "<group>"; };
+		43AD945028952D220040E5B3 /* Curves.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Curves.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,6 +100,9 @@
 		43AD941C28951D580040E5B3 /* SwiftyAppStore */ = {
 			isa = PBXGroup;
 			children = (
+				43AD944928951E480040E5B3 /* View */,
+				43AD944828951E390040E5B3 /* ViewModel */,
+				43AD944728951E320040E5B3 /* Model */,
 				43AD941D28951D580040E5B3 /* SwiftyAppStoreApp.swift */,
 				43AD941F28951D590040E5B3 /* ContentView.swift */,
 				43AD942128951D5F0040E5B3 /* Assets.xcassets */,
@@ -125,6 +134,46 @@
 				43AD943A28951D5F0040E5B3 /* SwiftyAppStoreUITestsLaunchTests.swift */,
 			);
 			path = SwiftyAppStoreUITests;
+			sourceTree = "<group>";
+		};
+		43AD944728951E320040E5B3 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				43AD944D2895214A0040E5B3 /* Today.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		43AD944828951E390040E5B3 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		43AD944928951E480040E5B3 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				43AD944F28952D010040E5B3 /* Components */,
+				43AD944A28951E520040E5B3 /* Screens */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		43AD944A28951E520040E5B3 /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				43AD944B28951E5E0040E5B3 /* Home.swift */,
+			);
+			path = Screens;
+			sourceTree = "<group>";
+		};
+		43AD944F28952D010040E5B3 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				43AD945028952D220040E5B3 /* Curves.swift */,
+			);
+			path = Components;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -198,11 +247,9 @@
 					};
 					43AD942928951D5F0040E5B3 = {
 						CreatedOnToolsVersion = 13.0;
-						TestTargetID = 43AD941928951D580040E5B3;
 					};
 					43AD943328951D5F0040E5B3 = {
 						CreatedOnToolsVersion = 13.0;
-						TestTargetID = 43AD941928951D580040E5B3;
 					};
 				};
 			};
@@ -257,8 +304,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				43AD945128952D220040E5B3 /* Curves.swift in Sources */,
 				43AD942028951D590040E5B3 /* ContentView.swift in Sources */,
+				43AD944C28951E5E0040E5B3 /* Home.swift in Sources */,
 				43AD941E28951D580040E5B3 /* SwiftyAppStoreApp.swift in Sources */,
+				43AD944E2895214A0040E5B3 /* Today.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -424,9 +474,10 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -453,9 +504,10 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -473,11 +525,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -489,7 +540,6 @@
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SwiftyAppStore.app/SwiftyAppStore";
 			};
 			name = Debug;
 		};
@@ -497,11 +547,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -513,7 +562,6 @@
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SwiftyAppStore.app/SwiftyAppStore";
 			};
 			name = Release;
 		};
@@ -532,10 +580,10 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.kinfante.SwiftyAppStoreUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = SwiftyAppStore;
 			};
 			name = Debug;
 		};
@@ -554,10 +602,10 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.kinfante.SwiftyAppStoreUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = SwiftyAppStore;
 			};
 			name = Release;
 		};
