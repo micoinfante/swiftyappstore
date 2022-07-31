@@ -71,3 +71,9 @@ extension Loadable {
         }
     }
 }
+
+extension Loadable where T: SomeOptional {
+    func unwrap() -> Loadable<T.Wrapped> {
+        map { try $0.unwrap() }
+    }
+}
