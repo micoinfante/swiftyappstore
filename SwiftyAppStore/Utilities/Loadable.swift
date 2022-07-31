@@ -77,3 +77,15 @@ extension Loadable where T: SomeOptional {
         map { try $0.unwrap() }
     }
 }
+
+extension Loadable: Equatable where T: Equatable {
+    static func == (lhs: Loadable<T>, rhs: Loadable<T>) -> Bool {
+        switch (lhs, rhs) {
+        case let (.isLoaded(lhsV, _), isLoading(rhsV, _)): return lhsV == rhsV
+        case let (.loaded(lhsV), .loaded(rhsV)): return lhsV == rhsV
+        case let (.failed(lhsE), .failed(rhsE)):
+            return lhsE.localizedDescription == rhsE.localizedDescription
+        default: return false
+        }
+    }
+}
