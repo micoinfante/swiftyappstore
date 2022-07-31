@@ -7,9 +7,16 @@
 
 import Foundation
 
+enum HTTPMethod: String {
+    case get = "GET"
+    case patch = "PATCH"
+    case post = "POST"
+    case delete = "Delete"
+}
+
 protocol APICall {
     var path: String { get }
-    var method: String { get }
+    var method: HTTPMethod { get }
     var headers: [String: String]? { get }
     func body() throws -> Data?
 }
@@ -21,7 +28,7 @@ extension APICall {
         }
 
         var request = URLRequest(url: url)
-        request.httpMethod = method
+        request.httpMethod = method.rawValue
         request.allHTTPHeaderFields = headers
         request.httpBody = try body()
         return request
