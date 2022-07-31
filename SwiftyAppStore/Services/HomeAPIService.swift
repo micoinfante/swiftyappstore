@@ -13,6 +13,15 @@ protocol HomeAPIServiceProtocol: AnyObject {
 }
 
 final class HomeAPIService: HomeAPIServiceProtocol {
+
+    let session: URLSession
+    let baseURL: String = Constants.baseURL
+    let bgQueue = DispatchQueue(label: "bg_parse_queue")
+
+    init(session: URLSession = URLSession.shared) {
+        self.session = session
+    }
+
     func fetchGames(completion: ([Game]) -> Void) {
         let games: [Game] = []
         completion(todayItems)
