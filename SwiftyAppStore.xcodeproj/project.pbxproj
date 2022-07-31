@@ -26,6 +26,7 @@
 		43EF6BA628962A2C00C80630 /* Loadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43EF6BA528962A2C00C80630 /* Loadable.swift */; };
 		43EF6BA828962AE300C80630 /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43EF6BA728962AE300C80630 /* Helpers.swift */; };
 		43EF6BAA28962AF700C80630 /* DisposeBag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43EF6BA928962AF700C80630 /* DisposeBag.swift */; };
+		43EF6BAD2896380E00C80630 /* Optional.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43EF6BAC2896380E00C80630 /* Optional.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -68,6 +69,7 @@
 		43EF6BA528962A2C00C80630 /* Loadable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Loadable.swift; sourceTree = "<group>"; };
 		43EF6BA728962AE300C80630 /* Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
 		43EF6BA928962AF700C80630 /* DisposeBag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisposeBag.swift; sourceTree = "<group>"; };
+		43EF6BAC2896380E00C80630 /* Optional.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Optional.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -231,6 +233,7 @@
 				43EF6BA528962A2C00C80630 /* Loadable.swift */,
 				43EF6BA728962AE300C80630 /* Helpers.swift */,
 				43EF6BA928962AF700C80630 /* DisposeBag.swift */,
+				43EF6BAC2896380E00C80630 /* Optional.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -374,6 +377,7 @@
 				43AD944C28951E5E0040E5B3 /* HomeView.swift in Sources */,
 				43AD941E28951D580040E5B3 /* SwiftyAppStoreApp.swift in Sources */,
 				43AD945628955FD90040E5B3 /* View.swift in Sources */,
+				43EF6BAD2896380E00C80630 /* Optional.swift in Sources */,
 				43EF6BA828962AE300C80630 /* Helpers.swift in Sources */,
 				43AD945C289573C20040E5B3 /* HomeRepository.swift in Sources */,
 				43AD944E2895214A0040E5B3 /* Today.swift in Sources */,
