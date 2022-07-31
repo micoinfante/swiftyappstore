@@ -15,7 +15,7 @@ protocol HomeAPIServiceProtocol: AnyObject {
 final class HomeAPIService: HomeAPIServiceProtocol {
     func fetchGames(completion: ([Game]) -> Void) {
         let games: [Game] = []
-        completion(games)
+        completion(todayItems)
     }
 
 //    func getExtraDetails(id: String, completion: (Game) -> Void) {

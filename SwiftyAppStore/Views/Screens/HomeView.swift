@@ -26,10 +26,10 @@ struct HomeView: View {
             VStack(spacing: 30) {
                 HStack(alignment: .bottom) {
                     VStack(alignment: .leading, spacing: 8) {
-                        Text("Saturday 30 July")
-                            .font(.callout)
-                            .foregroundColor(.gray)
-                            .textCase(.uppercase)
+//                        Text("Saturday 30 July")
+//                            .font(.callout)
+//                            .foregroundColor(.gray)
+//                            .textCase(.uppercase)
 
                         Text("Today")
                             .font(.largeTitle.bold())
@@ -45,7 +45,7 @@ struct HomeView: View {
                 .padding(.bottom)
                 .opacity(showDetailPage ? 0 : 1)
                 
-                ForEach(todayItems) { item in
+                ForEach(viewModel.games, id: \.self) { item in
                     Button {
                         withAnimation(.interactiveSpring(response: 0.6,
                                                          dampingFraction: 0.7,
@@ -74,7 +74,7 @@ struct HomeView: View {
             RoundedRectangle(cornerRadius: 15, style: .continuous)
                 .fill(Color("bg"))
                 .frame(height: animateView ? nil : 350, alignment: .top)
-                .opacity(animateView ? 1 : 0)
+                .opacity(showDetailPage ? 1 : 0)
                 .ignoresSafeArea()
         }
         .onAppear {
