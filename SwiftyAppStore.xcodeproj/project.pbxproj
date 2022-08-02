@@ -22,7 +22,6 @@
 		43AD94592895735A0040E5B3 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43AD94582895735A0040E5B3 /* HomeViewModel.swift */; };
 		43AD945C289573C20040E5B3 /* HomeRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43AD945B289573C20040E5B3 /* HomeRepository.swift */; };
 		43AD945E289573F40040E5B3 /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43AD945D289573F40040E5B3 /* Game.swift */; };
-		43AD9461289575760040E5B3 /* HomeAPIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43AD9460289575760040E5B3 /* HomeAPIService.swift */; };
 		43EF6BA628962A2C00C80630 /* Loadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43EF6BA528962A2C00C80630 /* Loadable.swift */; };
 		43EF6BA828962AE300C80630 /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43EF6BA728962AE300C80630 /* Helpers.swift */; };
 		43EF6BAA28962AF700C80630 /* DisposeBag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43EF6BA928962AF700C80630 /* DisposeBag.swift */; };
@@ -69,7 +68,6 @@
 		43AD94582895735A0040E5B3 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		43AD945B289573C20040E5B3 /* HomeRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeRepository.swift; sourceTree = "<group>"; };
 		43AD945D289573F40040E5B3 /* Game.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
-		43AD9460289575760040E5B3 /* HomeAPIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeAPIService.swift; sourceTree = "<group>"; };
 		43EF6BA528962A2C00C80630 /* Loadable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Loadable.swift; sourceTree = "<group>"; };
 		43EF6BA728962AE300C80630 /* Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
 		43EF6BA928962AF700C80630 /* DisposeBag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisposeBag.swift; sourceTree = "<group>"; };
@@ -130,7 +128,6 @@
 			children = (
 				43EF6BB628963F8200C80630 /* Resources */,
 				43EF6BA428962A1A00C80630 /* Utilities */,
-				43AD945F2895755D0040E5B3 /* Services */,
 				43AD945A289573740040E5B3 /* Repositories */,
 				43AD945428955FCC0040E5B3 /* Extensions */,
 				43AD944928951E480040E5B3 /* Views */,
@@ -225,14 +222,6 @@
 				43AD945B289573C20040E5B3 /* HomeRepository.swift */,
 			);
 			path = Repositories;
-			sourceTree = "<group>";
-		};
-		43AD945F2895755D0040E5B3 /* Services */ = {
-			isa = PBXGroup;
-			children = (
-				43AD9460289575760040E5B3 /* HomeAPIService.swift */,
-			);
-			path = Services;
 			sourceTree = "<group>";
 		};
 		43EF6BA428962A1A00C80630 /* Utilities */ = {
@@ -394,7 +383,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				43AD9461289575760040E5B3 /* HomeAPIService.swift in Sources */,
 				43EF6BB828963F9200C80630 /* Constants.swift in Sources */,
 				43AD945128952D220040E5B3 /* Curves.swift in Sources */,
 				43AD945E289573F40040E5B3 /* Game.swift in Sources */,
