@@ -6,30 +6,30 @@
 //
 
 import Foundation
+import Combine
 
 // Repository is an overkill but for demo purposes ...
 protocol HomeRepositoryProtocol: NetworkManagerProtocol {
-    func fetchGames(completion: ([Game]) -> Void)
-//    func getGameExtraDetail(by id: String, completion: (Game) -> Void)
+    func fetchGames() -> AnyPublisher<[Game], Error>
+    func getGameExtraDetail(by id: String) -> AnyPublisher<App.ExtraDetail, Error>
 }
 
 final class HomeRepository: HomeRepositoryProtocol {
-    var session: URLSession = URLSession.shared
+    let session: URLSession
     var baseURL: String = ""
-    var bgQueue: DispatchQueue = DispatchQueue(label: "bg_parse_queue")
+    let bgQueue: DispatchQueue
 
-    private let apiService: HomeAPIServiceProtocol
-
-    init(apiService: HomeAPIServiceProtocol = HomeAPIService()) {
-        self.apiService = apiService
+    init(session: URLSession = URLSession.shared, queue: DispatchQueue = DispatchQueue(label: "bg_parse_queue")) {
+        self.session = session
+        self.bgQueue = queue
     }
 
-    func fetchGames(completion: ([Game]) -> Void) {
-
+    func fetchGames() -> AnyPublisher<[Game], Error> {
+        return request(endpoint: API.allGames)
     }
 
-    func getGameExtraDetail(by id: String, completion: (Game) -> Void) {
-        
+    func getGameExtraDetail(by id: String) -> AnyPublisher<App.ExtraDetail, Error> {
+        return request(endpoint: API.gameDetails(id))
     }
 
 }
