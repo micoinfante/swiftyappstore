@@ -1,0 +1,14 @@
+/* 
+  localizable.strings
+  SwiftyAppStore
+
+  Created by Mico Infante on 8/8/22.
+  
+*/
+
+// MARK: Tab Items
+"tab.today" = "Today";
+"tab.games" = "Games";
+"tab.apps" = "Apps";
+"tab.arcade" = "Arcade";
+"tab.search" = "Search";

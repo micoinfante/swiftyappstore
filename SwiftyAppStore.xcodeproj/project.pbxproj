@@ -31,6 +31,7 @@
 		43EF6BB428963AC900C80630 /* APIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43EF6BB328963AC900C80630 /* APIError.swift */; };
 		43EF6BB528963E6500C80630 /* APICall.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43EF6BB0289639EE00C80630 /* APICall.swift */; };
 		43EF6BB828963F9200C80630 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43EF6BB728963F9200C80630 /* Constants.swift */; };
+		43F1487D28A13314009C930F /* localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 43F1487C28A13314009C930F /* localizable.strings */; };
 		43F22E88289F7CD100C6AB2F /* NetworkingHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43F22E87289F7CD100C6AB2F /* NetworkingHelpers.swift */; };
 		43F22E8A289FA20000C6AB2F /* LoadingState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43F22E89289FA20000C6AB2F /* LoadingState.swift */; };
 /* End PBXBuildFile section */
@@ -82,6 +83,7 @@
 		43EF6BB728963F9200C80630 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		43F1487A28A12CC7009C930F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		43F1487B28A12DC7009C930F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		43F1487C28A13314009C930F /* localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = localizable.strings; sourceTree = "<group>"; };
 		43F22E87289F7CD100C6AB2F /* NetworkingHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingHelpers.swift; sourceTree = "<group>"; };
 		43F22E89289FA20000C6AB2F /* LoadingState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingState.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -264,6 +266,7 @@
 			children = (
 				43AD942128951D5F0040E5B3 /* Assets.xcassets */,
 				43EF6BB728963F9200C80630 /* Constants.swift */,
+				43F1487C28A13314009C930F /* localizable.strings */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -370,6 +373,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				43F1487D28A13314009C930F /* localizable.strings in Resources */,
 				43AD942528951D5F0040E5B3 /* Preview Assets.xcassets in Resources */,
 				43AD942228951D5F0040E5B3 /* Assets.xcassets in Resources */,
 			);
