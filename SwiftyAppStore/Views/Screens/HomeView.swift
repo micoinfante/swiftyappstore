@@ -144,7 +144,7 @@ extension HomeView {
                     .scaleEffect(animateView ? 1 : 0.93)
 
                 VStack(spacing: 15) {
-                    Text(dummyText)
+                    Text("Lorem ipsum")
                         .multilineTextAlignment(.leading)
                         .lineSpacing(10)
                         .padding(.bottom, 20)
