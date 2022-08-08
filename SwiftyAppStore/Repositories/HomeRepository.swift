@@ -10,13 +10,13 @@ import Combine
 
 // Repository is an overkill but for demo purposes ...
 protocol HomeRepositoryProtocol: NetworkManagerProtocol {
-    func fetchGames() -> AnyPublisher<[Game], Error>
-    func getGameExtraDetail(by id: String) -> AnyPublisher<App.ExtraDetail, Error>
+    func fetchGames() -> AnyPublisher<[StoreApp], Error>
+    func getGameExtraDetail(by id: String) -> AnyPublisher<StoreApp.ExtraDetail, Error>
 }
 
 final class HomeRepository: HomeRepositoryProtocol {
     let session: URLSession
-    var baseURL: String = ""
+    var baseURL: String = Constants.baseURL + "/apps"
     let bgQueue: DispatchQueue
 
     init(session: URLSession = URLSession.shared, queue: DispatchQueue = DispatchQueue(label: "bg_parse_queue")) {
@@ -24,11 +24,11 @@ final class HomeRepository: HomeRepositoryProtocol {
         self.bgQueue = queue
     }
 
-    func fetchGames() -> AnyPublisher<[Game], Error> {
+    func fetchGames() -> AnyPublisher<[StoreApp], Error> {
         return request(endpoint: API.allGames)
     }
 
-    func getGameExtraDetail(by id: String) -> AnyPublisher<App.ExtraDetail, Error> {
+    func getGameExtraDetail(by id: String) -> AnyPublisher<StoreApp.ExtraDetail, Error> {
         return request(endpoint: API.gameDetails(id))
     }
 

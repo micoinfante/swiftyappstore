@@ -1,4 +1,4 @@
- //
+//
 //  Home.swift
 //  SwiftyAppStore
 //
@@ -9,10 +9,10 @@ import SwiftUI
 import Combine
 
 struct HomeView: View {
-    @StateObject private var viewModel = HomeViewModel()
-    private var cancellable: AnyCancellable?
+    @StateObject var viewModel = HomeViewModel()
 
-    @State var currentItem: Game?
+
+    @State var currentItem: StoreApp?
     @State var showDetailPage: Bool = false
 
     @Namespace var animation
@@ -21,80 +21,49 @@ struct HomeView: View {
     @State var animateContent: Bool = false
     @State var scrollOffset: CGFloat = 0
 
-    var body: some View {
-        ScrollView(.vertical, showsIndicators: false) {
-            VStack(spacing: 30) {
-                HStack(alignment: .bottom) {
-                    VStack(alignment: .leading, spacing: 8) {
-//                        Text("Saturday 30 July")
-//                            .font(.callout)
-//                            .foregroundColor(.gray)
-//                            .textCase(.uppercase)
+    var body: some View { content }
 
-                        Text("Today")
-                            .font(.largeTitle.bold())
-                    }
-                    .frame(maxWidth: .infinity, alignment: .leading)
-
-                    Button(action: {}) {
-                        Image(systemName: "person.circle.fill")
-                            .font(.largeTitle)
-                    }
-                }
-                .padding(.horizontal)
-                .padding(.bottom)
-                .opacity(showDetailPage ? 0 : 1)
-                
-                ForEach(viewModel.games, id: \.self) { item in
-                    Button {
-                        withAnimation(.interactiveSpring(response: 0.6,
-                                                         dampingFraction: 0.7,
-                                                         blendDuration: 0.7)) {
-                            currentItem = item
-                            showDetailPage = true
-                        }
-                    } label: {
-                        CardView(item: item)
-                            .scaleEffect(currentItem?.id == item.id && showDetailPage ? 1 : 0.93)
-                    }
-                    .buttonStyle(ScaledButtonStyle())
-                    .opacity(showDetailPage ? (currentItem?.id == item.id ? 1 : 0) : 1)
-                }
-
-            }
-            .padding(.vertical)
-        }
-        .overlay {
-            if let currentItem = currentItem, showDetailPage {
-                DetailView(item: currentItem)
-                    .ignoresSafeArea(.container, edges: .top)
-            }
-        }
-        .background(alignment: .top) {
-            RoundedRectangle(cornerRadius: 15, style: .continuous)
-                .fill(Color("bg"))
-                .frame(height: animateView ? nil : 350, alignment: .top)
-                .opacity(showDetailPage ? 1 : 0)
-                .ignoresSafeArea()
-        }
-        .onAppear {
-            viewModel.onAppear()
+    @ViewBuilder private var content: some View {
+        switch viewModel.apps {
+        case .notRequested:
+            Text("").onAppear { viewModel.loadApps() }
+        case let .isLoading(apps, _):
+            loadingView(apps)
+        case let .loaded(apps):
+            loadedView(apps)
+        case let .failed(error):
+            failedView(error)
         }
     }
 
 
     @ViewBuilder
-    func CardView(item: Game) -> some View {
+    func CardView(item: StoreApp) -> some View {
         VStack(alignment: .leading, spacing: 15) {
             ZStack(alignment: .topLeading) {
 
                 GeometryReader { proxy in
                     let size = proxy.size
-                    Image(item.artwork)
-                        .resizable()
-                        .aspectRatio(contentMode: .fill)
-                        .frame(width: size.width, height: size.height)
-                        .clipShape(Curves(corners: [.topLeft, .topRight], radius: 15))
+                    AsyncImage(url: item.artworkURL.toURL) { phase in
+                        switch phase {
+                        case .empty:
+                            ProgressView()
+                                .frame(width: size.width, height: size.height)
+                        case let .success(image):
+                            image
+                                .resizable()
+                                .aspectRatio(contentMode: .fill)
+                                .frame(width: size.width, height: size.height)
+                                .clipShape(Curves(corners: [.topLeft, .topRight], radius: 15))
+                        default:
+                            Image(systemName: "photo")
+                                .resizable()
+                                .aspectRatio(contentMode: .fill)
+                                .frame(width: size.width, height: size.height)
+                                .clipShape(Curves(corners: [.topLeft, .topRight], radius: 15))
+                        }
+                    }
+
                 }
                 .frame(height: 400)
 
@@ -108,9 +77,11 @@ struct HomeView: View {
                     Text(item.platformTitle.uppercased())
                         .font(.callout)
                         .fontWeight(.semibold)
+                        .foregroundColor(Color(uiColor: .lightGray))
 
                     Text(item.bannerTitle)
                         .font(.largeTitle.bold())
+
                         .multilineTextAlignment(.leading)
                 }
                 .foregroundColor(.primary)
@@ -119,7 +90,7 @@ struct HomeView: View {
             }
 
             HStack(spacing: 12) {
-                Image(item.appLogo)
+                Image(item.logoURL)
                     .resizable()
                     .aspectRatio(contentMode: .fill)
                     .frame(width: 60, height: 60)
@@ -130,7 +101,7 @@ struct HomeView: View {
                         .font(.caption)
                         .foregroundColor(.gray)
 
-                    Text(item.appName)
+                    Text(item.name)
                         .font(.caption)
                         .foregroundColor(.gray)
 
@@ -166,7 +137,7 @@ struct HomeView: View {
 
 extension HomeView {
     // MARK: Detail View
-    func DetailView(item: Game) -> some View{
+    func DetailView(item: StoreApp) -> some View{
         ScrollView(.vertical, showsIndicators: false) {
             VStack {
                 CardView(item: item)
@@ -245,9 +216,93 @@ extension HomeView {
     }
 }
 
-struct HomeView_Previews: PreviewProvider {
-    static var previews: some View {
-        HomeView()
-            .preferredColorScheme(.dark)
+// MARK: Displaying Content
+private extension HomeView {
+
+    var notRequestedView: some View {
+        Text("").onAppear(perform: {
+            viewModel.loadApps()
+        })
+    }
+
+    @ViewBuilder
+    func loadedView(_ apps: [StoreApp]) -> some View {
+        ScrollView(.vertical, showsIndicators: false) {
+            LazyVStack(spacing: 30) {
+                HStack(alignment: .bottom) {
+                    VStack(alignment: .leading, spacing: 8) {
+                        Text(Date().today().uppercased())
+                            .font(.caption)
+                            .fontWeight(.semibold)
+                            .foregroundColor(.gray)
+                            .textCase(.uppercase)
+
+                        Text("Today")
+                            .font(.largeTitle.bold())
+                    }
+                    .frame(maxWidth: .infinity, alignment: .leading)
+
+                    Button(action: {}) {
+                        Image(systemName: "person.circle.fill")
+                            .font(.largeTitle)
+                    }
+                }
+                .padding(.horizontal)
+                .padding(.bottom)
+                .opacity(showDetailPage ? 0 : 1)
+
+                ForEach(apps) { item in
+                    Button {
+                        withAnimation(.interactiveSpring(response: 0.6,
+                                                         dampingFraction: 0.7,
+                                                         blendDuration: 0.7)) {
+                            currentItem = item
+                            showDetailPage = true
+                        }
+                    } label: {
+                        CardView(item: item)
+                            .scaleEffect(currentItem?.id == item.id && showDetailPage ? 1 : 0.93)
+                    }
+                    .buttonStyle(ScaledButtonStyle())
+                    .opacity(showDetailPage ? (currentItem?.id == item.id ? 1 : 0) : 1)
+                }
+
+            }
+            .padding(.vertical)
+        }
+        .overlay {
+            if let currentItem = currentItem, showDetailPage {
+                DetailView(item: currentItem)
+                    .ignoresSafeArea(.container, edges: .top)
+            }
+        }
+        .background(alignment: .top) {
+            RoundedRectangle(cornerRadius: 15, style: .continuous)
+                .fill(Color("bg"))
+                .frame(height: animateView ? nil : 350, alignment: .top)
+                .opacity(showDetailPage ? 1 : 0)
+                .ignoresSafeArea()
+        }
+    }
+
+    func loadingView(_ last: [StoreApp]?) -> some View {
+        if let apps = last {
+            return AnyView(loadedView(apps))
+        } else {
+            return AnyView(ProgressView())
+        }
+    }
+
+    func failedView(_ error: Error) -> some View {
+        // TODO: Create better error screen
+        return Text(error.localizedDescription)
     }
 }
+
+// FIXME: Pass param apps
+//struct HomeView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        HomeView()
+//            .preferredColorScheme(.dark)
+//    }
+//}

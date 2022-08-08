@@ -7,6 +7,7 @@
 
 import Foundation
 import SwiftUI
+import Combine
 
 typealias LoadableSubject<Value> = Binding<Loadable<Value>>
 
@@ -14,6 +15,7 @@ enum Loadable<T> {
     case isLoading(last: T?, disposeBag: DisposeBag)
     case loaded(T)
     case failed(Error)
+    case notRequested
 
     var value: T? {
         switch self {
@@ -64,7 +66,7 @@ extension Loadable {
                                   disposeBag: db)
             case let .loaded(value):
                 return .loaded(try transform(value))
-
+            case .notRequested: return .notRequested
             }
         } catch {
             return .failed(error)
@@ -85,6 +87,7 @@ extension Loadable: Equatable where T: Equatable {
         case let (.loaded(lhsV), .loaded(rhsV)): return lhsV == rhsV
         case let (.failed(lhsE), .failed(rhsE)):
             return lhsE.localizedDescription == rhsE.localizedDescription
+        case (.notRequested, .notRequested): return true
         default: return false
         }
     }
