@@ -35,9 +35,3 @@ extension Date {
         return dateFormatter.string(from: self)
     }
 }
-
-extension NSError {
-    static var test: NSError {
-        return .init(domain: "Test Error", code: 0, userInfo: nil)
-    }
-}

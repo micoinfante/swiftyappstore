@@ -23,3 +23,16 @@ final class MockActions<Action> where Action: Equatable {
 
     // TODO: Add Mock funcs
 }
+
+// MARK: - Error
+
+enum MockError: Swift.Error {
+    case nullValue
+}
+
+extension NSError {
+    static var test: NSError {
+        return NSError(domain: "test", code: 0, userInfo: [NSLocalizedDescriptionKey: "Test error"])
+    }
+}
+
