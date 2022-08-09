@@ -21,7 +21,6 @@ extension String {
         guard let url = URL(string: self) else {
             return URL(string: "")!
         }
-        print("Loading \(url)")
         return url
     }
 }
@@ -34,5 +33,11 @@ extension Date {
         dateFormatter.dateFormat = "EEEE d MMMM"
 
         return dateFormatter.string(from: self)
+    }
+}
+
+extension NSError {
+    static var test: NSError {
+        return .init(domain: "Test Error", code: 0, userInfo: nil)
     }
 }

@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		431B6C1728A285EA00DA8687 /* LoadableTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 431B6C1628A285EA00DA8687 /* LoadableTests.swift */; };
+		431B6C1928A289AD00DA8687 /* HelperTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 431B6C1828A289AD00DA8687 /* HelperTests.swift */; };
 		43AD941E28951D580040E5B3 /* SwiftyAppStoreApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43AD941D28951D580040E5B3 /* SwiftyAppStoreApp.swift */; };
 		43AD942028951D590040E5B3 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43AD941F28951D590040E5B3 /* ContentView.swift */; };
 		43AD942228951D5F0040E5B3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 43AD942128951D5F0040E5B3 /* Assets.xcassets */; };
@@ -53,6 +54,7 @@
 
 /* Begin PBXFileReference section */
 		431B6C1628A285EA00DA8687 /* LoadableTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadableTests.swift; sourceTree = "<group>"; };
+		431B6C1828A289AD00DA8687 /* HelperTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelperTests.swift; sourceTree = "<group>"; };
 		43AD941A28951D580040E5B3 /* SwiftyAppStore.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftyAppStore.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		43AD941D28951D580040E5B3 /* SwiftyAppStoreApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftyAppStoreApp.swift; sourceTree = "<group>"; };
 		43AD941F28951D590040E5B3 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -113,6 +115,7 @@
 			isa = PBXGroup;
 			children = (
 				431B6C1628A285EA00DA8687 /* LoadableTests.swift */,
+				431B6C1828A289AD00DA8687 /* HelperTests.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -428,6 +431,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				43AD942F28951D5F0040E5B3 /* SwiftyAppStoreTests.swift in Sources */,
+				431B6C1928A289AD00DA8687 /* HelperTests.swift in Sources */,
 				431B6C1728A285EA00DA8687 /* LoadableTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
