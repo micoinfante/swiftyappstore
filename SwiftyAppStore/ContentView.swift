@@ -15,34 +15,7 @@ struct ContentView: View {
                 .tabItem {
                 Label("Today", systemImage: "doc.text.image").foregroundColor(.primary)
             }
-
-            SomeView()
-                .tabItem {
-                    Label("Games", systemImage: "gamecontroller").foregroundColor(.primary)
-                }
-
-            SomeView()
-                .tabItem {
-                    Label("Apps", systemImage: "rectangle.on.rectangle").foregroundColor(.primary)
-                }
-
-            SomeView()
-                .tabItem {
-                    Label("Arcade", systemImage: "a.circle").foregroundColor(.primary)
-                }
-
-            SomeView()
-                .tabItem {
-                    Label("Search", systemImage: "magnifyingglass").foregroundColor(.primary)
-                }
-
         }
-    }
-}
-
-struct SomeView: View {
-    var body: some View {
-        Text("Some View")
     }
 }
 

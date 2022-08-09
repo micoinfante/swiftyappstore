@@ -17,7 +17,6 @@ struct StoreApp: Codable, Identifiable {
     let bannerTitle: String
     let platformTitle: String
     let artworkURL: String
-//    let extraDetail: ExtraDetail
     let createdAt: Date
     let modifiedAt: Date
 
@@ -29,7 +28,6 @@ struct StoreApp: Codable, Identifiable {
         case bannerTitle
         case platformTitle
         case artworkURL
-//        case extraDetail
         case createdAt
         case modifiedAt
     }

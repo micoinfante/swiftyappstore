@@ -47,16 +47,6 @@ extension Publisher {
         })
     }
 
-    func sinkToLoadable(_ completion: @escaping (LoadingState<Output>) -> Void) -> AnyCancellable {
-        return sink(receiveCompletion: { subscriptionCompletion in
-            if let error = subscriptionCompletion.error {
-                completion(.failed(error))
-            }
-        }, receiveValue: { value in
-            completion(.loaded(value))
-        })
-    }
-
     func extractUnderlyingError() -> Publishers.MapError<Self, Failure> {
         mapError {
             ($0.underlyingError as? Failure) ?? $0

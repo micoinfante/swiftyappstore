@@ -19,8 +19,7 @@ extension Result {
 extension String {
     var toURL: URL {
         guard let url = URL(string: self) else {
-            print("No url \(self)")
-            return URL(string: "https://www.loadingurl.com")!
+            return URL(string: "")!
         }
         print("Loading \(url)")
         return url

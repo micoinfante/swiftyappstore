@@ -7,8 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		4398701C289D073B004915C6 /* LazyList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4398701B289D073B004915C6 /* LazyList.swift */; };
-		4398701E289D0819004915C6 /* Async.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4398701D289D0819004915C6 /* Async.swift */; };
 		43AD941E28951D580040E5B3 /* SwiftyAppStoreApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43AD941D28951D580040E5B3 /* SwiftyAppStoreApp.swift */; };
 		43AD942028951D590040E5B3 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43AD941F28951D590040E5B3 /* ContentView.swift */; };
 		43AD942228951D5F0040E5B3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 43AD942128951D5F0040E5B3 /* Assets.xcassets */; };
@@ -33,7 +31,6 @@
 		43EF6BB828963F9200C80630 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43EF6BB728963F9200C80630 /* Constants.swift */; };
 		43F1487D28A13314009C930F /* localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 43F1487C28A13314009C930F /* localizable.strings */; };
 		43F22E88289F7CD100C6AB2F /* NetworkingHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43F22E87289F7CD100C6AB2F /* NetworkingHelpers.swift */; };
-		43F22E8A289FA20000C6AB2F /* LoadingState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43F22E89289FA20000C6AB2F /* LoadingState.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,8 +51,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		4398701B289D073B004915C6 /* LazyList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LazyList.swift; sourceTree = "<group>"; };
-		4398701D289D0819004915C6 /* Async.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Async.swift; sourceTree = "<group>"; };
 		43AD941A28951D580040E5B3 /* SwiftyAppStore.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftyAppStore.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		43AD941D28951D580040E5B3 /* SwiftyAppStoreApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftyAppStoreApp.swift; sourceTree = "<group>"; };
 		43AD941F28951D590040E5B3 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -85,7 +80,6 @@
 		43F1487B28A12DC7009C930F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		43F1487C28A13314009C930F /* localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = localizable.strings; sourceTree = "<group>"; };
 		43F22E87289F7CD100C6AB2F /* NetworkingHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingHelpers.swift; sourceTree = "<group>"; };
-		43F22E89289FA20000C6AB2F /* LoadingState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingState.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -244,10 +238,7 @@
 				43EF6BA928962AF700C80630 /* DisposeBag.swift */,
 				43EF6BAC2896380E00C80630 /* Optional.swift */,
 				43EF6BAE2896393F00C80630 /* NetworkRepository.swift */,
-				4398701B289D073B004915C6 /* LazyList.swift */,
-				4398701D289D0819004915C6 /* Async.swift */,
 				43F22E87289F7CD100C6AB2F /* NetworkingHelpers.swift */,
-				43F22E89289FA20000C6AB2F /* LoadingState.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -408,16 +399,13 @@
 				43EF6BA628962A2C00C80630 /* Loadable.swift in Sources */,
 				43EF6BAA28962AF700C80630 /* DisposeBag.swift in Sources */,
 				43AD94592895735A0040E5B3 /* HomeViewModel.swift in Sources */,
-				4398701E289D0819004915C6 /* Async.swift in Sources */,
 				43EF6BB528963E6500C80630 /* APICall.swift in Sources */,
-				43F22E8A289FA20000C6AB2F /* LoadingState.swift in Sources */,
 				43AD944C28951E5E0040E5B3 /* HomeView.swift in Sources */,
 				43AD941E28951D580040E5B3 /* SwiftyAppStoreApp.swift in Sources */,
 				43AD945628955FD90040E5B3 /* View.swift in Sources */,
 				43EF6BAD2896380E00C80630 /* Optional.swift in Sources */,
 				43F22E88289F7CD100C6AB2F /* NetworkingHelpers.swift in Sources */,
 				43EF6BAF2896393F00C80630 /* NetworkRepository.swift in Sources */,
-				4398701C289D073B004915C6 /* LazyList.swift in Sources */,
 				43EF6BA828962AE300C80630 /* Helpers.swift in Sources */,
 				43AD945C289573C20040E5B3 /* HomeRepository.swift in Sources */,
 				43EF6BB428963AC900C80630 /* APIError.swift in Sources */,
