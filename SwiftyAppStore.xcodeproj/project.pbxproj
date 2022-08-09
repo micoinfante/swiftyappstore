@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		431B6C1728A285EA00DA8687 /* LoadableTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 431B6C1628A285EA00DA8687 /* LoadableTests.swift */; };
 		431B6C1928A289AD00DA8687 /* HelperTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 431B6C1828A289AD00DA8687 /* HelperTests.swift */; };
+		431B6C1C28A2A2CD00DA8687 /* Mock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 431B6C1B28A2A2CD00DA8687 /* Mock.swift */; };
 		43AD941E28951D580040E5B3 /* SwiftyAppStoreApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43AD941D28951D580040E5B3 /* SwiftyAppStoreApp.swift */; };
 		43AD942028951D590040E5B3 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43AD941F28951D590040E5B3 /* ContentView.swift */; };
 		43AD942228951D5F0040E5B3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 43AD942128951D5F0040E5B3 /* Assets.xcassets */; };
@@ -55,6 +56,7 @@
 /* Begin PBXFileReference section */
 		431B6C1628A285EA00DA8687 /* LoadableTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadableTests.swift; sourceTree = "<group>"; };
 		431B6C1828A289AD00DA8687 /* HelperTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelperTests.swift; sourceTree = "<group>"; };
+		431B6C1B28A2A2CD00DA8687 /* Mock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mock.swift; sourceTree = "<group>"; };
 		43AD941A28951D580040E5B3 /* SwiftyAppStore.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftyAppStore.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		43AD941D28951D580040E5B3 /* SwiftyAppStoreApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftyAppStoreApp.swift; sourceTree = "<group>"; };
 		43AD941F28951D590040E5B3 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -120,6 +122,14 @@
 			path = Utilities;
 			sourceTree = "<group>";
 		};
+		431B6C1A28A2A2BB00DA8687 /* Mocks */ = {
+			isa = PBXGroup;
+			children = (
+				431B6C1B28A2A2CD00DA8687 /* Mock.swift */,
+			);
+			path = Mocks;
+			sourceTree = "<group>";
+		};
 		43AD941128951D580040E5B3 = {
 			isa = PBXGroup;
 			children = (
@@ -169,6 +179,7 @@
 		43AD942D28951D5F0040E5B3 /* SwiftyAppStoreTests */ = {
 			isa = PBXGroup;
 			children = (
+				431B6C1A28A2A2BB00DA8687 /* Mocks */,
 				431B6C1528A2804F00DA8687 /* Utilities */,
 				43F1487A28A12CC7009C930F /* Info.plist */,
 				43AD942E28951D5F0040E5B3 /* SwiftyAppStoreTests.swift */,
@@ -433,6 +444,7 @@
 				43AD942F28951D5F0040E5B3 /* SwiftyAppStoreTests.swift in Sources */,
 				431B6C1928A289AD00DA8687 /* HelperTests.swift in Sources */,
 				431B6C1728A285EA00DA8687 /* LoadableTests.swift in Sources */,
+				431B6C1C28A2A2CD00DA8687 /* Mock.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
