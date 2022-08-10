@@ -58,7 +58,7 @@ extension MockedRequest.MockedResponse {
 
     init(apiCall: APICall, baseURL: String, customResponse: URLResponse) throws {
         guard let url = try apiCall.urlRequest(baseURL: baseURL).url
-        else { throw Error.failedMockCreation }
+        else { throw Error.mockCreationFailed }
         self.url = url
         result = .success(Data())
         httpCode = 200

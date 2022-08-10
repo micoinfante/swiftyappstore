@@ -9,7 +9,7 @@ import XCTest
 import Combine
 @testable import SwiftyAppStore
 
-class HomeRepositoryTests: XCTestCase {
+final class HomeRepositoryTests: XCTestCase {
 
     typealias API = HomeRepository.API
     typealias Mock = MockedRequest.MockedResponse
@@ -43,7 +43,7 @@ class HomeRepositoryTests: XCTestCase {
     func test_extraDetail() throws {
         let apps = StoreApp.mockedData
         let extraDetail = StoreApp.ExtraDetail.mockedData.first!
-        try mock(.gameDetails(apps.first!.i), result: .success(extraDetail))
+        try mock(.gameDetails(apps.first!.id), result: .success(extraDetail))
         let exp = XCTestExpectation(description: "Completion")
 
         repo.getGameExtraDetail(by: "1").sinkToResult { result in
@@ -146,25 +146,5 @@ extension PrefixRemovable {
             "Loadable<\(fullTypeName)>",
             "Loadable<LazyList<\(fullTypeName)>>"
         ]
-    }
-}
-
-// MARK: - BindingWithPublisher
-struct BindingWithPublisher<Value> {
-
-    let binding: Binding<Value>
-    let updatesRecorder: AnyPublisher<[Value], Never>
-
-    init(value: Value, recordingTimeInterval: TimeInterval = 0.5) {
-        var value = value
-        var updates = [value]
-        binding = Binding<Value>(
-            get: { value },
-            set: { value = $0; updates.append($0) })
-        updatesRecorder = Future<[Value], Never> { completion in
-            DispatchQueue.main.asyncAfter(deadline: .now() + recordingTimeInterval) {
-                completion(.success(updates))
-            }
-        }.eraseToAnyPublisher()
     }
 }
