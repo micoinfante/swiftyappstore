@@ -15,9 +15,9 @@ protocol HomeRepositoryProtocol: NetworkManagerProtocol {
 }
 
 final class HomeRepository: HomeRepositoryProtocol {
-    let session: URLSession
-    var baseURL: String = Constants.baseURL + "/apps"
-    let bgQueue: DispatchQueue
+    internal let session: URLSession
+    internal var baseURL: String = Constants.baseURL + "/apps"
+    internal let bgQueue: DispatchQueue
 
     init(session: URLSession = URLSession.shared, queue: DispatchQueue = DispatchQueue(label: "bg_parse_queue")) {
         self.session = session

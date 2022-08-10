@@ -90,12 +90,14 @@ extension StoreApp: Hashable {
         let memory: String
         let updates: String
         let rating: String
+        let description: String
 
         enum CodingKeys: String, CodingKey {
             case about
             case memory
             case updates
             case rating
+            case description
         }
     }
 }

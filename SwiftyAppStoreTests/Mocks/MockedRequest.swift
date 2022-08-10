@@ -17,9 +17,7 @@ final class MockedRequest: URLProtocol {
         return request
     }
 
-    // swiftlint:disable identifier_name
     override class func requestIsCacheEquivalent(_ a: URLRequest, to b: URLRequest) -> Bool {
-        // swiftlint:enable identifier_name
         return false
     }
 
