@@ -2,7 +2,7 @@
 
 An AppStore demo project showcasing SwiftUI + MVVM + Combine.
 
-![platform](https://img.shields.io/badge/platform-iOS-lightgrey)[![Build Status](https://travis-ci.com/nalexn/clean-architecture-swiftui.svg?branch=master)](https://travis-ci.com/nalexn/clean-architecture-swiftui)
+![platform](https://img.shields.io/badge/platform-iOS-lightgrey) [![Build Status](https://travis-ci.com/nalexn/clean-architecture-swiftui.svg?branch=master)](https://travis-ci.com/nalexn/clean-architecture-swiftui)
 
 ## Key features
 
